@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:asm.ow2.io)",
+      "Bash(mvn clean *)",
+      "Bash(java -jar analysis-cli/target/analysis-cli-1.0.0-SNAPSHOT.jar --help)",
+      "Bash(jar -tf analysis-agent/target/analysis-agent-1.0.0-SNAPSHOT.jar)",
+      "Bash(unzip -p analysis-agent/target/analysis-agent-1.0.0-SNAPSHOT.jar META-INF/MANIFEST.MF)",
+      "Bash(python3 -c \"import zipfile; z=zipfile.ZipFile\\('analysis-agent/target/analysis-agent-1.0.0-SNAPSHOT.jar'\\); print\\(z.read\\('META-INF/MANIFEST.MF'\\).decode\\(\\)\\)\")",
+      "Bash(python -c \"import zipfile; z=zipfile.ZipFile\\('analysis-agent/target/analysis-agent-1.0.0-SNAPSHOT.jar'\\); print\\(z.read\\('META-INF/MANIFEST.MF'\\).decode\\(\\)\\)\")",
+      "Bash(java -jar analysis-cli/target/analysis-cli-1.0.0-SNAPSHOT.jar static -i analysis-core/target/analysis-core-1.0.0-SNAPSHOT.jar -f text)",
+      "Bash(java -jar analysis-cli/target/analysis-cli-1.0.0-SNAPSHOT.jar static -i analysis-core/target/analysis-core-1.0.0-SNAPSHOT.jar -f json)",
+      "Bash(java -jar analysis-cli/target/analysis-cli-1.0.0-SNAPSHOT.jar static -i analysis-core/target/analysis-core-1.0.0-SNAPSHOT.jar -f dot)",
+      "Bash(xargs grep *)",
+      "Bash(java -jar analysis-cli/target/analysis-cli-1.0.0-SNAPSHOT.jar static -i test-springboot-app/target/demo-0.0.1-SNAPSHOT.jar -f text)",
+      "Bash(java -jar analysis-cli/target/analysis-cli-1.0.0-SNAPSHOT.jar static -i test-springboot-app/target/demo-0.0.1-SNAPSHOT.jar -f json)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('=== 元数据 ==='\\); print\\(json.dumps\\(d['metadata'], indent=2, ensure_ascii=False\\)\\); print\\(\\); print\\('=== 应用代码包 ==='\\); pkg=d['packages'].get\\('com.example.demo', {}\\); print\\(json.dumps\\(pkg, indent=2, ensure_ascii=False\\)\\); print\\(\\); print\\('=== Spring 包统计 ==='\\); sp={k:v for k,v in d['packages'].items\\(\\) if k.startswith\\('org.springframework'\\)}; print\\(f'Spring 包数量: {len\\(sp\\)}'\\); print\\(f'Spring 类总数: {sum\\(v[\\\\\"classCount\\\\\"] for v in sp.values\\(\\)\\)}'\\); print\\(\\); print\\('=== Jackson 包统计 ==='\\); jp={k:v for k,v in d['packages'].items\\(\\) if k.startswith\\('com.fasterxml.jackson'\\)}; print\\(f'Jackson 包数量: {len\\(jp\\)}'\\); print\\(f'Jackson 类总数: {sum\\(v[\\\\\"classCount\\\\\"] for v in jp.values\\(\\)\\)}'\\)\")",
+      "Bash(python -c ' *)",
+      "Bash(gh auth *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git rm *)",
+      "Bash(echo \".claude/\")",
+      "Bash(git commit -m ' *)",
+      "Bash(git config *)"
+    ]
+  }
+}
